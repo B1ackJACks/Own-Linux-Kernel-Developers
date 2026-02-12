@@ -1,1 +1,0 @@
-cmd_/home/student/Own-Linux-Kernel-Developers/HW_N1_netfilter/Module.symvers :=  sed 's/ko$$/o/'  /home/student/Own-Linux-Kernel-Developers/HW_N1_netfilter/modules.order | scripts/mod/modpost -m      -o /home/student/Own-Linux-Kernel-Developers/HW_N1_netfilter/Module.symvers -e -i Module.symvers -T - 

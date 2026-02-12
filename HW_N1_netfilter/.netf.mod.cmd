@@ -1,1 +1,0 @@
-cmd_/home/student/Own-Linux-Kernel-Developers/HW_N1_netfilter/netf.mod := printf '%s\n'   netf.o | awk '!x[$$0]++ { print("/home/student/Own-Linux-Kernel-Developers/HW_N1_netfilter/"$$0) }' > /home/student/Own-Linux-Kernel-Developers/HW_N1_netfilter/netf.mod

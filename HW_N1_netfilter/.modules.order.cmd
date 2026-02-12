@@ -1,1 +1,0 @@
-cmd_/home/student/Own-Linux-Kernel-Developers/HW_N1_netfilter/modules.order := {   echo /home/student/Own-Linux-Kernel-Developers/HW_N1_netfilter/netf.ko; :; } > /home/student/Own-Linux-Kernel-Developers/HW_N1_netfilter/modules.order
