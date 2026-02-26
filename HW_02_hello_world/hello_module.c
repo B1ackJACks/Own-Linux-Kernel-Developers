@@ -102,6 +102,6 @@ module_init(hw02_init);
 module_exit(hw02_exit);
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Zagovenko Vsevolod");
+MODULE_AUTHOR("Vsevolod Zag");
 MODULE_DESCRIPTION("Kernel module that builds 'Hello, World!' via sysfs parameters");
 MODULE_VERSION("1.0");
