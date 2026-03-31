@@ -1,0 +1,15 @@
+
+ Performance counter stats for 'timeout 10 ./user_threads':
+
+         7 526 402      cycles                                                             
+         3 384 535      instructions                     #    0,45  insn per cycle         
+                52      context-switches                                                   
+           155 461      cache-misses                                                       
+           117 775      branch-misses                                                      
+
+      10,057193610 seconds time elapsed
+
+       0,020417000 seconds user
+       0,178080000 seconds sys
+
+
