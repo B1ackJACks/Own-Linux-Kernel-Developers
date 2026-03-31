@@ -106,8 +106,11 @@ static int __init mod_init(void)
 static void __exit mod_exit(void)
 {
 	bitmap_free(bmng.bitmap);
+	pr_info("Exit");
 }
 
 module_init(mod_init);
 module_exit(mod_exit);
+MODULE_AUTHOR("Vsevolod Zag");
+MODULE_DESCRIPTION("Bitmap-based block memory manager for Linux kernel.");
 MODULE_LICENSE("GPL");
