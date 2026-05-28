@@ -1,0 +1,1758 @@
+Checking ex_get_page.c ...
+WARNING: Missing or malformed SPDX-License-Identifier tag in line 1
+#1: FILE: ex_get_page.c:1:
++#include <linux/module.h>
+
+WARNING: please, no spaces at the start of a line
+#9: FILE: ex_get_page.c:9:
++    int order_idx;$
+
+WARNING: please, no spaces at the start of a line
+#10: FILE: ex_get_page.c:10:
++    unsigned long block_bytes;$
+
+WARNING: please, no spaces at the start of a line
+#11: FILE: ex_get_page.c:11:
++    unsigned long page_addr;$
+
+WARNING: please, no spaces at the start of a line
+#13: FILE: ex_get_page.c:13:
++    ktime_t gp_start, gp_end;$
+
+WARNING: please, no spaces at the start of a line
+#14: FILE: ex_get_page.c:14:
++    s64 gp_time_ms;$
+
+WARNING: please, no spaces at the start of a line
+#16: FILE: ex_get_page.c:16:
++    pr_info("get_free_page: I'm testing page selection up to MAX_ORDER=%d\n", MAX_ORDER);$
+
+WARNING: please, no spaces at the start of a line
+#18: FILE: ex_get_page.c:18:
++    for(order_idx = 0; order_idx<=MAX_ORDER; order_idx++) {$
+
+ERROR: spaces required around that '<=' (ctx:VxV)
+#18: FILE: ex_get_page.c:18:
++    for(order_idx = 0; order_idx<=MAX_ORDER; order_idx++) {
+                                 ^
+
+ERROR: space required before the open parenthesis '('
+#18: FILE: ex_get_page.c:18:
++    for(order_idx = 0; order_idx<=MAX_ORDER; order_idx++) {
+
+ERROR: code indent should use tabs where possible
+#19: FILE: ex_get_page.c:19:
++        block_bytes = PAGE_SIZE << order_idx;$
+
+WARNING: please, no spaces at the start of a line
+#19: FILE: ex_get_page.c:19:
++        block_bytes = PAGE_SIZE << order_idx;$
+
+ERROR: code indent should use tabs where possible
+#20: FILE: ex_get_page.c:20:
++        pr_info("get_free_page: %lu byte (order=%d)\n", block_bytes, order_idx);$
+
+WARNING: please, no spaces at the start of a line
+#20: FILE: ex_get_page.c:20:
++        pr_info("get_free_page: %lu byte (order=%d)\n", block_bytes, order_idx);$
+
+ERROR: trailing whitespace
+#21: FILE: ex_get_page.c:21:
++    $
+
+WARNING: please, no spaces at the start of a line
+#21: FILE: ex_get_page.c:21:
++    $
+
+ERROR: code indent should use tabs where possible
+#22: FILE: ex_get_page.c:22:
++        gp_start = ktime_get();$
+
+WARNING: please, no spaces at the start of a line
+#22: FILE: ex_get_page.c:22:
++        gp_start = ktime_get();$
+
+ERROR: code indent should use tabs where possible
+#23: FILE: ex_get_page.c:23:
++        page_addr = __get_free_pages(GFP_KERNEL, order_idx);$
+
+WARNING: please, no spaces at the start of a line
+#23: FILE: ex_get_page.c:23:
++        page_addr = __get_free_pages(GFP_KERNEL, order_idx);$
+
+ERROR: code indent should use tabs where possible
+#24: FILE: ex_get_page.c:24:
++        gp_end = ktime_get();$
+
+WARNING: please, no spaces at the start of a line
+#24: FILE: ex_get_page.c:24:
++        gp_end = ktime_get();$
+
+ERROR: code indent should use tabs where possible
+#26: FILE: ex_get_page.c:26:
++        if (page_addr) {$
+
+WARNING: please, no spaces at the start of a line
+#26: FILE: ex_get_page.c:26:
++        if (page_addr) {$
+
+WARNING: suspect code indent for conditional statements (8, 12)
+#26: FILE: ex_get_page.c:26:
++        if (page_addr) {
++            gp_time_ms = ktime_ms_delta(gp_end, gp_start);
+
+ERROR: code indent should use tabs where possible
+#27: FILE: ex_get_page.c:27:
++            gp_time_ms = ktime_ms_delta(gp_end, gp_start);$
+
+WARNING: please, no spaces at the start of a line
+#27: FILE: ex_get_page.c:27:
++            gp_time_ms = ktime_ms_delta(gp_end, gp_start);$
+
+ERROR: code indent should use tabs where possible
+#28: FILE: ex_get_page.c:28:
++            pr_info("get_free_page: SUCCESS\n");$
+
+WARNING: please, no spaces at the start of a line
+#28: FILE: ex_get_page.c:28:
++            pr_info("get_free_page: SUCCESS\n");$
+
+ERROR: code indent should use tabs where possible
+#29: FILE: ex_get_page.c:29:
++            pr_info("get_free_page: %lu byte, %lld ms, type: physical (pages)\n",$
+
+WARNING: please, no spaces at the start of a line
+#29: FILE: ex_get_page.c:29:
++            pr_info("get_free_page: %lu byte, %lld ms, type: physical (pages)\n",$
+
+ERROR: code indent should use tabs where possible
+#30: FILE: ex_get_page.c:30:
++                    block_bytes, gp_time_ms);$
+
+WARNING: please, no spaces at the start of a line
+#30: FILE: ex_get_page.c:30:
++                    block_bytes, gp_time_ms);$
+
+ERROR: trailing whitespace
+#32: FILE: ex_get_page.c:32:
++            $
+
+ERROR: code indent should use tabs where possible
+#32: FILE: ex_get_page.c:32:
++            $
+
+WARNING: please, no spaces at the start of a line
+#32: FILE: ex_get_page.c:32:
++            $
+
+ERROR: code indent should use tabs where possible
+#33: FILE: ex_get_page.c:33:
++            free_pages(page_addr, order_idx);$
+
+WARNING: please, no spaces at the start of a line
+#33: FILE: ex_get_page.c:33:
++            free_pages(page_addr, order_idx);$
+
+ERROR: code indent should use tabs where possible
+#34: FILE: ex_get_page.c:34:
++        } else {$
+
+WARNING: please, no spaces at the start of a line
+#34: FILE: ex_get_page.c:34:
++        } else {$
+
+WARNING: suspect code indent for conditional statements (8, 12)
+#34: FILE: ex_get_page.c:34:
++        } else {
++            pr_info("get_free_page: FAIL, err_msg = allocation failed\n");
+
+ERROR: code indent should use tabs where possible
+#35: FILE: ex_get_page.c:35:
++            pr_info("get_free_page: FAIL, err_msg = allocation failed\n");$
+
+WARNING: please, no spaces at the start of a line
+#35: FILE: ex_get_page.c:35:
++            pr_info("get_free_page: FAIL, err_msg = allocation failed\n");$
+
+ERROR: code indent should use tabs where possible
+#36: FILE: ex_get_page.c:36:
++            pr_info("get_free_page: maximum successful order = %d (%lu байт)\n",$
+
+WARNING: please, no spaces at the start of a line
+#36: FILE: ex_get_page.c:36:
++            pr_info("get_free_page: maximum successful order = %d (%lu байт)\n",$
+
+ERROR: code indent should use tabs where possible
+#37: FILE: ex_get_page.c:37:
++                    order_idx - 1, (order_idx > 0 ? PAGE_SIZE << (order_idx - 1) : 0));$
+
+WARNING: please, no spaces at the start of a line
+#37: FILE: ex_get_page.c:37:
++                    order_idx - 1, (order_idx > 0 ? PAGE_SIZE << (order_idx - 1) : 0));$
+
+ERROR: code indent should use tabs where possible
+#38: FILE: ex_get_page.c:38:
++            break;$
+
+WARNING: please, no spaces at the start of a line
+#38: FILE: ex_get_page.c:38:
++            break;$
+
+ERROR: code indent should use tabs where possible
+#39: FILE: ex_get_page.c:39:
++        }$
+
+WARNING: please, no spaces at the start of a line
+#39: FILE: ex_get_page.c:39:
++        }$
+
+WARNING: please, no spaces at the start of a line
+#40: FILE: ex_get_page.c:40:
++    }$
+
+WARNING: please, no spaces at the start of a line
+#42: FILE: ex_get_page.c:42:
++    return 0;$
+
+ERROR: trailing whitespace
+#44: FILE: ex_get_page.c:44:
++    $
+
+WARNING: please, no spaces at the start of a line
+#44: FILE: ex_get_page.c:44:
++    $
+
+WARNING: please, no spaces at the start of a line
+#47: FILE: ex_get_page.c:47:
++    pr_info("get_free_page module unloaded\n");$
+
+total: 23 errors, 33 warnings, 55 lines checked
+
+NOTE: For some of the reported defects, checkpatch may be able to
+      mechanically convert to the typical style using --fix or --fix-inplace.
+
+NOTE: Whitespace errors detected.
+      You may wish to use scripts/cleanpatch or scripts/cleanfile
+
+ex_get_page.c has style problems, please review.
+
+NOTE: If any of the errors are false positives, please report
+      them to the maintainer, see CHECKPATCH in MAINTAINERS.
+Checking ex_get_page.mod.c ...
+WARNING: Missing or malformed SPDX-License-Identifier tag in line 1
+#1: FILE: ex_get_page.mod.c:1:
++#include <linux/module.h>
+
+total: 0 errors, 1 warnings, 42 lines checked
+
+NOTE: For some of the reported defects, checkpatch may be able to
+      mechanically convert to the typical style using --fix or --fix-inplace.
+
+ex_get_page.mod.c has style problems, please review.
+
+NOTE: If any of the errors are false positives, please report
+      them to the maintainer, see CHECKPATCH in MAINTAINERS.
+Checking ex_kmalloc.c ...
+WARNING: Missing or malformed SPDX-License-Identifier tag in line 1
+#1: FILE: ex_kmalloc.c:1:
++#include <linux/module.h>
+
+WARNING: please, no spaces at the start of a line
+#10: FILE: ex_kmalloc.c:10:
++    unsigned long alloc_sz;$
+
+WARNING: please, no spaces at the start of a line
+#11: FILE: ex_kmalloc.c:11:
++    void *buf_ptr;$
+
+WARNING: please, no spaces at the start of a line
+#12: FILE: ex_kmalloc.c:12:
++    ktime_t tm_start, tm_end;$
+
+WARNING: please, no spaces at the start of a line
+#13: FILE: ex_kmalloc.c:13:
++    s64 elapsed_ms;$
+
+ERROR: trailing whitespace
+#14: FILE: ex_kmalloc.c:14:
++    $
+
+WARNING: please, no spaces at the start of a line
+#14: FILE: ex_kmalloc.c:14:
++    $
+
+WARNING: please, no spaces at the start of a line
+#15: FILE: ex_kmalloc.c:15:
++    unsigned long largest_ok = 0;$
+
+WARNING: please, no spaces at the start of a line
+#16: FILE: ex_kmalloc.c:16:
++    unsigned long low = 1;$
+
+WARNING: please, no spaces at the start of a line
+#17: FILE: ex_kmalloc.c:17:
++    unsigned long high = 64*1024*1024UL;$
+
+WARNING: please, no spaces at the start of a line
+#19: FILE: ex_kmalloc.c:19:
++    unsigned long test;$
+
+WARNING: Missing a blank line after declarations
+#20: FILE: ex_kmalloc.c:20:
++    unsigned long test;
++    pr_info("kmalloc: starting binary search for max allocation\n");
+
+WARNING: please, no spaces at the start of a line
+#20: FILE: ex_kmalloc.c:20:
++    pr_info("kmalloc: starting binary search for max allocation\n");$
+
+WARNING: please, no spaces at the start of a line
+#22: FILE: ex_kmalloc.c:22:
++    buf_ptr = kmalloc(high, GFP_KERNEL);$
+
+WARNING: please, no spaces at the start of a line
+#23: FILE: ex_kmalloc.c:23:
++    if(buf_ptr) {$
+
+ERROR: space required before the open parenthesis '('
+#23: FILE: ex_kmalloc.c:23:
++    if(buf_ptr) {
+
+ERROR: code indent should use tabs where possible
+#24: FILE: ex_kmalloc.c:24:
++        kfree(buf_ptr);$
+
+WARNING: please, no spaces at the start of a line
+#24: FILE: ex_kmalloc.c:24:
++        kfree(buf_ptr);$
+
+WARNING: kfree(NULL) is safe and this check is probably not required
+#24: FILE: ex_kmalloc.c:24:
++    if(buf_ptr) {
++        kfree(buf_ptr);
+
+ERROR: code indent should use tabs where possible
+#25: FILE: ex_kmalloc.c:25:
++        high *= 2;$
+
+WARNING: please, no spaces at the start of a line
+#25: FILE: ex_kmalloc.c:25:
++        high *= 2;$
+
+WARNING: please, no spaces at the start of a line
+#26: FILE: ex_kmalloc.c:26:
++    }$
+
+WARNING: please, no spaces at the start of a line
+#28: FILE: ex_kmalloc.c:28:
++    while((buf_ptr = kmalloc(high, GFP_KERNEL))!=NULL){$
+
+ERROR: spaces required around that '!=' (ctx:VxV)
+#28: FILE: ex_kmalloc.c:28:
++    while((buf_ptr = kmalloc(high, GFP_KERNEL))!=NULL){
+                                                ^
+
+ERROR: space required before the open brace '{'
+#28: FILE: ex_kmalloc.c:28:
++    while((buf_ptr = kmalloc(high, GFP_KERNEL))!=NULL){
+
+ERROR: space required before the open parenthesis '('
+#28: FILE: ex_kmalloc.c:28:
++    while((buf_ptr = kmalloc(high, GFP_KERNEL))!=NULL){
+
+ERROR: code indent should use tabs where possible
+#29: FILE: ex_kmalloc.c:29:
++        kfree(buf_ptr);$
+
+WARNING: please, no spaces at the start of a line
+#29: FILE: ex_kmalloc.c:29:
++        kfree(buf_ptr);$
+
+ERROR: code indent should use tabs where possible
+#30: FILE: ex_kmalloc.c:30:
++        high*=2;$
+
+WARNING: please, no spaces at the start of a line
+#30: FILE: ex_kmalloc.c:30:
++        high*=2;$
+
+ERROR: spaces required around that '*=' (ctx:VxV)
+#30: FILE: ex_kmalloc.c:30:
++        high*=2;
+             ^
+
+WARNING: please, no spaces at the start of a line
+#31: FILE: ex_kmalloc.c:31:
++    }$
+
+WARNING: please, no spaces at the start of a line
+#33: FILE: ex_kmalloc.c:33:
++    while(low<=high){$
+
+ERROR: spaces required around that '<=' (ctx:VxV)
+#33: FILE: ex_kmalloc.c:33:
++    while(low<=high){
+              ^
+
+ERROR: space required before the open brace '{'
+#33: FILE: ex_kmalloc.c:33:
++    while(low<=high){
+
+ERROR: space required before the open parenthesis '('
+#33: FILE: ex_kmalloc.c:33:
++    while(low<=high){
+
+ERROR: code indent should use tabs where possible
+#34: FILE: ex_kmalloc.c:34:
++        test = low + (high - low)/2;$
+
+WARNING: please, no spaces at the start of a line
+#34: FILE: ex_kmalloc.c:34:
++        test = low + (high - low)/2;$
+
+ERROR: code indent should use tabs where possible
+#35: FILE: ex_kmalloc.c:35:
++        if(test<1) test = 1;$
+
+WARNING: please, no spaces at the start of a line
+#35: FILE: ex_kmalloc.c:35:
++        if(test<1) test = 1;$
+
+ERROR: spaces required around that '<' (ctx:VxV)
+#35: FILE: ex_kmalloc.c:35:
++        if(test<1) test = 1;
+                ^
+
+ERROR: space required before the open parenthesis '('
+#35: FILE: ex_kmalloc.c:35:
++        if(test<1) test = 1;
+
+ERROR: trailing statements should be on next line
+#35: FILE: ex_kmalloc.c:35:
++        if(test<1) test = 1;
+
+ERROR: code indent should use tabs where possible
+#36: FILE: ex_kmalloc.c:36:
++        pr_info("kmalloc: %lu byte\n",test);$
+
+WARNING: please, no spaces at the start of a line
+#36: FILE: ex_kmalloc.c:36:
++        pr_info("kmalloc: %lu byte\n",test);$
+
+ERROR: space required after that ',' (ctx:VxV)
+#36: FILE: ex_kmalloc.c:36:
++        pr_info("kmalloc: %lu byte\n",test);
+                                      ^
+
+ERROR: code indent should use tabs where possible
+#37: FILE: ex_kmalloc.c:37:
++        tm_start = ktime_get();$
+
+WARNING: please, no spaces at the start of a line
+#37: FILE: ex_kmalloc.c:37:
++        tm_start = ktime_get();$
+
+ERROR: code indent should use tabs where possible
+#38: FILE: ex_kmalloc.c:38:
++        buf_ptr = kmalloc(test, GFP_KERNEL);$
+
+WARNING: please, no spaces at the start of a line
+#38: FILE: ex_kmalloc.c:38:
++        buf_ptr = kmalloc(test, GFP_KERNEL);$
+
+ERROR: code indent should use tabs where possible
+#39: FILE: ex_kmalloc.c:39:
++        tm_end = ktime_get();$
+
+WARNING: please, no spaces at the start of a line
+#39: FILE: ex_kmalloc.c:39:
++        tm_end = ktime_get();$
+
+ERROR: code indent should use tabs where possible
+#41: FILE: ex_kmalloc.c:41:
++        if(buf_ptr) {$
+
+WARNING: please, no spaces at the start of a line
+#41: FILE: ex_kmalloc.c:41:
++        if(buf_ptr) {$
+
+WARNING: suspect code indent for conditional statements (8, 12)
+#41: FILE: ex_kmalloc.c:41:
++        if(buf_ptr) {
++            elapsed_ms = ktime_ms_delta(tm_end, tm_start);
+
+ERROR: space required before the open parenthesis '('
+#41: FILE: ex_kmalloc.c:41:
++        if(buf_ptr) {
+
+ERROR: code indent should use tabs where possible
+#42: FILE: ex_kmalloc.c:42:
++            elapsed_ms = ktime_ms_delta(tm_end, tm_start);$
+
+WARNING: please, no spaces at the start of a line
+#42: FILE: ex_kmalloc.c:42:
++            elapsed_ms = ktime_ms_delta(tm_end, tm_start);$
+
+ERROR: code indent should use tabs where possible
+#43: FILE: ex_kmalloc.c:43:
++            pr_info("kmalloc: SUCCESS\n");$
+
+WARNING: please, no spaces at the start of a line
+#43: FILE: ex_kmalloc.c:43:
++            pr_info("kmalloc: SUCCESS\n");$
+
+ERROR: code indent should use tabs where possible
+#44: FILE: ex_kmalloc.c:44:
++            pr_info("kmalloc: %lu byte, %lld ms, type: physical\n",test,elapsed_ms);$
+
+WARNING: please, no spaces at the start of a line
+#44: FILE: ex_kmalloc.c:44:
++            pr_info("kmalloc: %lu byte, %lld ms, type: physical\n",test,elapsed_ms);$
+
+ERROR: space required after that ',' (ctx:VxV)
+#44: FILE: ex_kmalloc.c:44:
++            pr_info("kmalloc: %lu byte, %lld ms, type: physical\n",test,elapsed_ms);
+                                                                   ^
+
+ERROR: space required after that ',' (ctx:VxV)
+#44: FILE: ex_kmalloc.c:44:
++            pr_info("kmalloc: %lu byte, %lld ms, type: physical\n",test,elapsed_ms);
+                                                                        ^
+
+ERROR: code indent should use tabs where possible
+#45: FILE: ex_kmalloc.c:45:
++            kfree(buf_ptr);$
+
+WARNING: please, no spaces at the start of a line
+#45: FILE: ex_kmalloc.c:45:
++            kfree(buf_ptr);$
+
+ERROR: code indent should use tabs where possible
+#47: FILE: ex_kmalloc.c:47:
++            largest_ok = test;$
+
+WARNING: please, no spaces at the start of a line
+#47: FILE: ex_kmalloc.c:47:
++            largest_ok = test;$
+
+ERROR: code indent should use tabs where possible
+#48: FILE: ex_kmalloc.c:48:
++            low = test + 1;$
+
+WARNING: please, no spaces at the start of a line
+#48: FILE: ex_kmalloc.c:48:
++            low = test + 1;$
+
+ERROR: code indent should use tabs where possible
+#49: FILE: ex_kmalloc.c:49:
++        }$
+
+WARNING: please, no spaces at the start of a line
+#49: FILE: ex_kmalloc.c:49:
++        }$
+
+ERROR: code indent should use tabs where possible
+#50: FILE: ex_kmalloc.c:50:
++        else {$
+
+WARNING: please, no spaces at the start of a line
+#50: FILE: ex_kmalloc.c:50:
++        else {$
+
+WARNING: suspect code indent for conditional statements (8, 12)
+#50: FILE: ex_kmalloc.c:50:
++        else {
++            pr_info("kmalloc:FAIL, err_msg = allocation failed\n");
+
+ERROR: else should follow close brace '}'
+#50: FILE: ex_kmalloc.c:50:
++        }
++        else {
+
+ERROR: code indent should use tabs where possible
+#51: FILE: ex_kmalloc.c:51:
++            pr_info("kmalloc:FAIL, err_msg = allocation failed\n");$
+
+WARNING: please, no spaces at the start of a line
+#51: FILE: ex_kmalloc.c:51:
++            pr_info("kmalloc:FAIL, err_msg = allocation failed\n");$
+
+ERROR: code indent should use tabs where possible
+#52: FILE: ex_kmalloc.c:52:
++            high = test - 1;$
+
+WARNING: please, no spaces at the start of a line
+#52: FILE: ex_kmalloc.c:52:
++            high = test - 1;$
+
+ERROR: code indent should use tabs where possible
+#53: FILE: ex_kmalloc.c:53:
++        }$
+
+WARNING: please, no spaces at the start of a line
+#53: FILE: ex_kmalloc.c:53:
++        }$
+
+ERROR: trailing whitespace
+#54: FILE: ex_kmalloc.c:54:
++    } $
+
+WARNING: please, no spaces at the start of a line
+#54: FILE: ex_kmalloc.c:54:
++    } $
+
+WARNING: please, no spaces at the start of a line
+#55: FILE: ex_kmalloc.c:55:
++    if(largest_ok>0)$
+
+ERROR: spaces required around that '>' (ctx:VxV)
+#55: FILE: ex_kmalloc.c:55:
++    if(largest_ok>0)
+                  ^
+
+ERROR: space required before the open parenthesis '('
+#55: FILE: ex_kmalloc.c:55:
++    if(largest_ok>0)
+
+ERROR: code indent should use tabs where possible
+#56: FILE: ex_kmalloc.c:56:
++        pr_info("kmalloc: maximum allocation size = %lu bytes\n", largest_ok);$
+
+WARNING: please, no spaces at the start of a line
+#56: FILE: ex_kmalloc.c:56:
++        pr_info("kmalloc: maximum allocation size = %lu bytes\n", largest_ok);$
+
+ERROR: trailing whitespace
+#57: FILE: ex_kmalloc.c:57:
++    else $
+
+WARNING: please, no spaces at the start of a line
+#57: FILE: ex_kmalloc.c:57:
++    else $
+
+ERROR: code indent should use tabs where possible
+#58: FILE: ex_kmalloc.c:58:
++        pr_info("kmalloc:could not allocate even 1 byte\n");$
+
+WARNING: please, no spaces at the start of a line
+#58: FILE: ex_kmalloc.c:58:
++        pr_info("kmalloc:could not allocate even 1 byte\n");$
+
+WARNING: please, no spaces at the start of a line
+#59: FILE: ex_kmalloc.c:59:
++    return 0;$
+
+WARNING: please, no spaces at the start of a line
+#64: FILE: ex_kmalloc.c:64:
++    pr_info("kmalloc module unloaded");$
+
+total: 45 errors, 50 warnings, 72 lines checked
+
+NOTE: For some of the reported defects, checkpatch may be able to
+      mechanically convert to the typical style using --fix or --fix-inplace.
+
+NOTE: Whitespace errors detected.
+      You may wish to use scripts/cleanpatch or scripts/cleanfile
+
+ex_kmalloc.c has style problems, please review.
+
+NOTE: If any of the errors are false positives, please report
+      them to the maintainer, see CHECKPATCH in MAINTAINERS.
+Checking ex_kmalloc.mod.c ...
+WARNING: Missing or malformed SPDX-License-Identifier tag in line 1
+#1: FILE: ex_kmalloc.mod.c:1:
++#include <linux/module.h>
+
+total: 0 errors, 1 warnings, 43 lines checked
+
+NOTE: For some of the reported defects, checkpatch may be able to
+      mechanically convert to the typical style using --fix or --fix-inplace.
+
+ex_kmalloc.mod.c has style problems, please review.
+
+NOTE: If any of the errors are false positives, please report
+      them to the maintainer, see CHECKPATCH in MAINTAINERS.
+Checking ex_kmem_cache.c ...
+WARNING: Missing or malformed SPDX-License-Identifier tag in line 1
+#1: FILE: ex_kmem_cache.c:1:
++#include <linux/module.h>
+
+WARNING: please, no spaces at the start of a line
+#9: FILE: ex_kmem_cache.c:9:
++    unsigned long c_low = 1;$
+
+WARNING: please, no spaces at the start of a line
+#10: FILE: ex_kmem_cache.c:10:
++    unsigned long c_high = 8*1024*1024UL;$
+
+WARNING: please, no spaces at the start of a line
+#11: FILE: ex_kmem_cache.c:11:
++    unsigned long c_test;$
+
+WARNING: please, no spaces at the start of a line
+#12: FILE: ex_kmem_cache.c:12:
++    unsigned long c_best = 0;$
+
+WARNING: please, no spaces at the start of a line
+#14: FILE: ex_kmem_cache.c:14:
++    struct kmem_cache *cache_obj;$
+
+WARNING: please, no spaces at the start of a line
+#15: FILE: ex_kmem_cache.c:15:
++    void *obj_buf;$
+
+WARNING: please, no spaces at the start of a line
+#16: FILE: ex_kmem_cache.c:16:
++    ktime_t c_start, c_end;$
+
+WARNING: please, no spaces at the start of a line
+#17: FILE: ex_kmem_cache.c:17:
++    s64 c_time_ms;$
+
+ERROR: trailing whitespace
+#18: FILE: ex_kmem_cache.c:18:
++    $
+
+WARNING: please, no spaces at the start of a line
+#18: FILE: ex_kmem_cache.c:18:
++    $
+
+WARNING: please, no spaces at the start of a line
+#19: FILE: ex_kmem_cache.c:19:
++    pr_info("kmem_cache:searching for the maximum size of an object\n");$
+
+WARNING: please, no spaces at the start of a line
+#21: FILE: ex_kmem_cache.c:21:
++    while(c_low <= c_high) {$
+
+ERROR: space required before the open parenthesis '('
+#21: FILE: ex_kmem_cache.c:21:
++    while(c_low <= c_high) {
+
+ERROR: code indent should use tabs where possible
+#22: FILE: ex_kmem_cache.c:22:
++        c_test = c_low + (c_high - c_low)/2;$
+
+WARNING: please, no spaces at the start of a line
+#22: FILE: ex_kmem_cache.c:22:
++        c_test = c_low + (c_high - c_low)/2;$
+
+ERROR: code indent should use tabs where possible
+#23: FILE: ex_kmem_cache.c:23:
++        if (c_test < 1) c_test = 1;$
+
+WARNING: please, no spaces at the start of a line
+#23: FILE: ex_kmem_cache.c:23:
++        if (c_test < 1) c_test = 1;$
+
+ERROR: trailing statements should be on next line
+#23: FILE: ex_kmem_cache.c:23:
++        if (c_test < 1) c_test = 1;
+
+ERROR: code indent should use tabs where possible
+#24: FILE: ex_kmem_cache.c:24:
++        cache_obj = kmem_cache_create("my_test_cache",c_test,0,SLAB_HWCACHE_ALIGN, NULL);$
+
+WARNING: please, no spaces at the start of a line
+#24: FILE: ex_kmem_cache.c:24:
++        cache_obj = kmem_cache_create("my_test_cache",c_test,0,SLAB_HWCACHE_ALIGN, NULL);$
+
+ERROR: space required after that ',' (ctx:VxV)
+#24: FILE: ex_kmem_cache.c:24:
++        cache_obj = kmem_cache_create("my_test_cache",c_test,0,SLAB_HWCACHE_ALIGN, NULL);
+                                                      ^
+
+ERROR: space required after that ',' (ctx:VxV)
+#24: FILE: ex_kmem_cache.c:24:
++        cache_obj = kmem_cache_create("my_test_cache",c_test,0,SLAB_HWCACHE_ALIGN, NULL);
+                                                             ^
+
+ERROR: space required after that ',' (ctx:VxV)
+#24: FILE: ex_kmem_cache.c:24:
++        cache_obj = kmem_cache_create("my_test_cache",c_test,0,SLAB_HWCACHE_ALIGN, NULL);
+                                                               ^
+
+ERROR: code indent should use tabs where possible
+#26: FILE: ex_kmem_cache.c:26:
++        if(!cache_obj){$
+
+WARNING: please, no spaces at the start of a line
+#26: FILE: ex_kmem_cache.c:26:
++        if(!cache_obj){$
+
+WARNING: suspect code indent for conditional statements (8, 12)
+#26: FILE: ex_kmem_cache.c:26:
++        if(!cache_obj){
++            pr_info("kmem_cache: создание кэша для %lu байт не удалось\n", c_test);
+
+ERROR: space required before the open brace '{'
+#26: FILE: ex_kmem_cache.c:26:
++        if(!cache_obj){
+
+ERROR: space required before the open parenthesis '('
+#26: FILE: ex_kmem_cache.c:26:
++        if(!cache_obj){
+
+ERROR: code indent should use tabs where possible
+#27: FILE: ex_kmem_cache.c:27:
++            pr_info("kmem_cache: создание кэша для %lu байт не удалось\n", c_test);$
+
+WARNING: please, no spaces at the start of a line
+#27: FILE: ex_kmem_cache.c:27:
++            pr_info("kmem_cache: создание кэша для %lu байт не удалось\n", c_test);$
+
+ERROR: code indent should use tabs where possible
+#28: FILE: ex_kmem_cache.c:28:
++            c_high = c_test - 1;$
+
+WARNING: please, no spaces at the start of a line
+#28: FILE: ex_kmem_cache.c:28:
++            c_high = c_test - 1;$
+
+ERROR: code indent should use tabs where possible
+#29: FILE: ex_kmem_cache.c:29:
++            continue;$
+
+WARNING: please, no spaces at the start of a line
+#29: FILE: ex_kmem_cache.c:29:
++            continue;$
+
+ERROR: code indent should use tabs where possible
+#30: FILE: ex_kmem_cache.c:30:
++        }$
+
+WARNING: please, no spaces at the start of a line
+#30: FILE: ex_kmem_cache.c:30:
++        }$
+
+ERROR: code indent should use tabs where possible
+#31: FILE: ex_kmem_cache.c:31:
++        pr_info("kmem_cache: %lu byte (the cache has been created)\n", c_test);$
+
+WARNING: please, no spaces at the start of a line
+#31: FILE: ex_kmem_cache.c:31:
++        pr_info("kmem_cache: %lu byte (the cache has been created)\n", c_test);$
+
+ERROR: trailing whitespace
+#32: FILE: ex_kmem_cache.c:32:
++        $
+
+ERROR: code indent should use tabs where possible
+#32: FILE: ex_kmem_cache.c:32:
++        $
+
+WARNING: please, no spaces at the start of a line
+#32: FILE: ex_kmem_cache.c:32:
++        $
+
+ERROR: code indent should use tabs where possible
+#33: FILE: ex_kmem_cache.c:33:
++        c_start = ktime_get();$
+
+WARNING: please, no spaces at the start of a line
+#33: FILE: ex_kmem_cache.c:33:
++        c_start = ktime_get();$
+
+ERROR: code indent should use tabs where possible
+#34: FILE: ex_kmem_cache.c:34:
++        obj_buf = kmem_cache_alloc(cache_obj, GFP_KERNEL);$
+
+WARNING: please, no spaces at the start of a line
+#34: FILE: ex_kmem_cache.c:34:
++        obj_buf = kmem_cache_alloc(cache_obj, GFP_KERNEL);$
+
+ERROR: code indent should use tabs where possible
+#35: FILE: ex_kmem_cache.c:35:
++        c_end = ktime_get();$
+
+WARNING: please, no spaces at the start of a line
+#35: FILE: ex_kmem_cache.c:35:
++        c_end = ktime_get();$
+
+ERROR: code indent should use tabs where possible
+#37: FILE: ex_kmem_cache.c:37:
++        if(obj_buf) {$
+
+WARNING: please, no spaces at the start of a line
+#37: FILE: ex_kmem_cache.c:37:
++        if(obj_buf) {$
+
+WARNING: suspect code indent for conditional statements (8, 12)
+#37: FILE: ex_kmem_cache.c:37:
++        if(obj_buf) {
++            c_time_ms = ktime_ms_delta(c_end, c_start);
+
+ERROR: space required before the open parenthesis '('
+#37: FILE: ex_kmem_cache.c:37:
++        if(obj_buf) {
+
+ERROR: code indent should use tabs where possible
+#38: FILE: ex_kmem_cache.c:38:
++            c_time_ms = ktime_ms_delta(c_end, c_start);$
+
+WARNING: please, no spaces at the start of a line
+#38: FILE: ex_kmem_cache.c:38:
++            c_time_ms = ktime_ms_delta(c_end, c_start);$
+
+ERROR: code indent should use tabs where possible
+#39: FILE: ex_kmem_cache.c:39:
++            pr_info("kmem_cache: SUCCESS\n");$
+
+WARNING: please, no spaces at the start of a line
+#39: FILE: ex_kmem_cache.c:39:
++            pr_info("kmem_cache: SUCCESS\n");$
+
+ERROR: code indent should use tabs where possible
+#40: FILE: ex_kmem_cache.c:40:
++            pr_info("kmem_cache: %lu byte, %lld ms, type: physical (slab)\n",$
+
+WARNING: please, no spaces at the start of a line
+#40: FILE: ex_kmem_cache.c:40:
++            pr_info("kmem_cache: %lu byte, %lld ms, type: physical (slab)\n",$
+
+ERROR: code indent should use tabs where possible
+#41: FILE: ex_kmem_cache.c:41:
++                    c_test, c_time_ms);$
+
+WARNING: please, no spaces at the start of a line
+#41: FILE: ex_kmem_cache.c:41:
++                    c_test, c_time_ms);$
+
+ERROR: trailing whitespace
+#42: FILE: ex_kmem_cache.c:42:
++        $
+
+ERROR: code indent should use tabs where possible
+#42: FILE: ex_kmem_cache.c:42:
++        $
+
+WARNING: please, no spaces at the start of a line
+#42: FILE: ex_kmem_cache.c:42:
++        $
+
+WARNING: please, no spaces at the start of a line
+#43: FILE: ex_kmem_cache.c:43:
++     } else {$
+
+ERROR: code indent should use tabs where possible
+#44: FILE: ex_kmem_cache.c:44:
++        pr_info("kmem_cache: FAIL, err_msg = alloc from cache failed\n");$
+
+WARNING: please, no spaces at the start of a line
+#44: FILE: ex_kmem_cache.c:44:
++        pr_info("kmem_cache: FAIL, err_msg = alloc from cache failed\n");$
+
+ERROR: code indent should use tabs where possible
+#45: FILE: ex_kmem_cache.c:45:
++        c_high = c_test - 1;$
+
+WARNING: please, no spaces at the start of a line
+#45: FILE: ex_kmem_cache.c:45:
++        c_high = c_test - 1;$
+
+WARNING: please, no spaces at the start of a line
+#46: FILE: ex_kmem_cache.c:46:
++    }$
+
+ERROR: code indent should use tabs where possible
+#47: FILE: ex_kmem_cache.c:47:
++        kmem_cache_destroy(cache_obj);$
+
+WARNING: please, no spaces at the start of a line
+#47: FILE: ex_kmem_cache.c:47:
++        kmem_cache_destroy(cache_obj);$
+
+WARNING: please, no spaces at the start of a line
+#48: FILE: ex_kmem_cache.c:48:
++    }$
+
+WARNING: please, no spaces at the start of a line
+#49: FILE: ex_kmem_cache.c:49:
++    if(c_best > 0)$
+
+ERROR: space required before the open parenthesis '('
+#49: FILE: ex_kmem_cache.c:49:
++    if(c_best > 0)
+
+ERROR: code indent should use tabs where possible
+#50: FILE: ex_kmem_cache.c:50:
++        pr_info("kmem_cache: maximum object size = %lu bytes\n");$
+
+WARNING: please, no spaces at the start of a line
+#50: FILE: ex_kmem_cache.c:50:
++        pr_info("kmem_cache: maximum object size = %lu bytes\n");$
+
+WARNING: please, no spaces at the start of a line
+#51: FILE: ex_kmem_cache.c:51:
++    else$
+
+WARNING: suspect code indent for conditional statements (4, 9)
+#51: FILE: ex_kmem_cache.c:51:
++    else
++         pr_info("kmem_cache: couldn't select any objects\n");
+
+ERROR: code indent should use tabs where possible
+#52: FILE: ex_kmem_cache.c:52:
++         pr_info("kmem_cache: couldn't select any objects\n");$
+
+WARNING: please, no spaces at the start of a line
+#52: FILE: ex_kmem_cache.c:52:
++         pr_info("kmem_cache: couldn't select any objects\n");$
+
+ERROR: trailing whitespace
+#53: FILE: ex_kmem_cache.c:53:
++    $
+
+WARNING: please, no spaces at the start of a line
+#53: FILE: ex_kmem_cache.c:53:
++    $
+
+WARNING: please, no spaces at the start of a line
+#54: FILE: ex_kmem_cache.c:54:
++    return 0;$
+
+ERROR: trailing whitespace
+#55: FILE: ex_kmem_cache.c:55:
++}   $
+
+WARNING: please, no spaces at the start of a line
+#59: FILE: ex_kmem_cache.c:59:
++    pr_info("kmem_cache module unloaded\n");$
+
+total: 38 errors, 47 warnings, 68 lines checked
+
+NOTE: For some of the reported defects, checkpatch may be able to
+      mechanically convert to the typical style using --fix or --fix-inplace.
+
+NOTE: Whitespace errors detected.
+      You may wish to use scripts/cleanpatch or scripts/cleanfile
+
+ex_kmem_cache.c has style problems, please review.
+
+NOTE: If any of the errors are false positives, please report
+      them to the maintainer, see CHECKPATCH in MAINTAINERS.
+Checking ex_kmem_cache.mod.c ...
+WARNING: Missing or malformed SPDX-License-Identifier tag in line 1
+#1: FILE: ex_kmem_cache.mod.c:1:
++#include <linux/module.h>
+
+total: 0 errors, 1 warnings, 43 lines checked
+
+NOTE: For some of the reported defects, checkpatch may be able to
+      mechanically convert to the typical style using --fix or --fix-inplace.
+
+ex_kmem_cache.mod.c has style problems, please review.
+
+NOTE: If any of the errors are false positives, please report
+      them to the maintainer, see CHECKPATCH in MAINTAINERS.
+Checking ex_mempool.c ...
+WARNING: Missing or malformed SPDX-License-Identifier tag in line 1
+#1: FILE: ex_mempool.c:1:
++#include <linux/module.h>
+
+WARNING: please, no spaces at the start of a line
+#13: FILE: ex_mempool.c:13:
++    unsigned long p_low = 1;$
+
+WARNING: please, no spaces at the start of a line
+#14: FILE: ex_mempool.c:14:
++    unsigned long p_high = 8 * 1024 * 1024UL; // ограничение, как у  kmalloc$
+
+WARNING: please, no spaces at the start of a line
+#15: FILE: ex_mempool.c:15:
++    unsigned long p_test;$
+
+WARNING: please, no spaces at the start of a line
+#16: FILE: ex_mempool.c:16:
++    unsigned long p_best = 0;$
+
+ERROR: trailing whitespace
+#18: FILE: ex_mempool.c:18:
++    mempool_t *pool_ptr;       $
+
+WARNING: please, no spaces at the start of a line
+#18: FILE: ex_mempool.c:18:
++    mempool_t *pool_ptr;       $
+
+ERROR: trailing whitespace
+#19: FILE: ex_mempool.c:19:
++    void *pool_item;           $
+
+WARNING: please, no spaces at the start of a line
+#19: FILE: ex_mempool.c:19:
++    void *pool_item;           $
+
+WARNING: please, no spaces at the start of a line
+#20: FILE: ex_mempool.c:20:
++    ktime_t p_start, p_end;$
+
+WARNING: please, no spaces at the start of a line
+#21: FILE: ex_mempool.c:21:
++    s64 p_time_ms;$
+
+ERROR: trailing whitespace
+#22: FILE: ex_mempool.c:22:
++    int min_nr = 1;  $
+
+WARNING: please, no spaces at the start of a line
+#22: FILE: ex_mempool.c:22:
++    int min_nr = 1;  $
+
+ERROR: trailing whitespace
+#23: FILE: ex_mempool.c:23:
++    $
+
+WARNING: please, no spaces at the start of a line
+#23: FILE: ex_mempool.c:23:
++    $
+
+WARNING: please, no spaces at the start of a line
+#24: FILE: ex_mempool.c:24:
++    pr_info("mempool: finding the maximum element size\n");$
+
+WARNING: please, no spaces at the start of a line
+#26: FILE: ex_mempool.c:26:
++    while(p_low <= p_high) {$
+
+ERROR: space required before the open parenthesis '('
+#26: FILE: ex_mempool.c:26:
++    while(p_low <= p_high) {
+
+ERROR: code indent should use tabs where possible
+#27: FILE: ex_mempool.c:27:
++        p_test = p_low + (p_high - p_low)/2;$
+
+WARNING: please, no spaces at the start of a line
+#27: FILE: ex_mempool.c:27:
++        p_test = p_low + (p_high - p_low)/2;$
+
+ERROR: code indent should use tabs where possible
+#28: FILE: ex_mempool.c:28:
++        if(p_test < 1) p_test = 1;$
+
+WARNING: please, no spaces at the start of a line
+#28: FILE: ex_mempool.c:28:
++        if(p_test < 1) p_test = 1;$
+
+ERROR: space required before the open parenthesis '('
+#28: FILE: ex_mempool.c:28:
++        if(p_test < 1) p_test = 1;
+
+ERROR: trailing statements should be on next line
+#28: FILE: ex_mempool.c:28:
++        if(p_test < 1) p_test = 1;
+
+ERROR: code indent should use tabs where possible
+#30: FILE: ex_mempool.c:30:
++        pool_ptr = mempool_create_kmalloc_pool(min_nr, p_test);$
+
+WARNING: please, no spaces at the start of a line
+#30: FILE: ex_mempool.c:30:
++        pool_ptr = mempool_create_kmalloc_pool(min_nr, p_test);$
+
+ERROR: code indent should use tabs where possible
+#31: FILE: ex_mempool.c:31:
++        if (!pool_ptr) {$
+
+WARNING: please, no spaces at the start of a line
+#31: FILE: ex_mempool.c:31:
++        if (!pool_ptr) {$
+
+WARNING: suspect code indent for conditional statements (8, 12)
+#31: FILE: ex_mempool.c:31:
++        if (!pool_ptr) {
++            pr_info("mempool: создание пула для %lu байт не удалось\n", p_test);
+
+ERROR: code indent should use tabs where possible
+#32: FILE: ex_mempool.c:32:
++            pr_info("mempool: создание пула для %lu байт не удалось\n", p_test);$
+
+WARNING: please, no spaces at the start of a line
+#32: FILE: ex_mempool.c:32:
++            pr_info("mempool: создание пула для %lu байт не удалось\n", p_test);$
+
+ERROR: code indent should use tabs where possible
+#33: FILE: ex_mempool.c:33:
++            p_high = p_test - 1;$
+
+WARNING: please, no spaces at the start of a line
+#33: FILE: ex_mempool.c:33:
++            p_high = p_test - 1;$
+
+ERROR: code indent should use tabs where possible
+#34: FILE: ex_mempool.c:34:
++            continue;$
+
+WARNING: please, no spaces at the start of a line
+#34: FILE: ex_mempool.c:34:
++            continue;$
+
+ERROR: code indent should use tabs where possible
+#35: FILE: ex_mempool.c:35:
++        }$
+
+WARNING: please, no spaces at the start of a line
+#35: FILE: ex_mempool.c:35:
++        }$
+
+ERROR: code indent should use tabs where possible
+#37: FILE: ex_mempool.c:37:
++        pr_info("mempool: %lu byte (пул создан)\n", p_test);$
+
+WARNING: please, no spaces at the start of a line
+#37: FILE: ex_mempool.c:37:
++        pr_info("mempool: %lu byte (пул создан)\n", p_test);$
+
+ERROR: code indent should use tabs where possible
+#39: FILE: ex_mempool.c:39:
++        p_start = ktime_get();$
+
+WARNING: please, no spaces at the start of a line
+#39: FILE: ex_mempool.c:39:
++        p_start = ktime_get();$
+
+ERROR: code indent should use tabs where possible
+#40: FILE: ex_mempool.c:40:
++        pool_item = mempool_alloc(pool_ptr, GFP_KERNEL);$
+
+WARNING: please, no spaces at the start of a line
+#40: FILE: ex_mempool.c:40:
++        pool_item = mempool_alloc(pool_ptr, GFP_KERNEL);$
+
+ERROR: code indent should use tabs where possible
+#41: FILE: ex_mempool.c:41:
++        p_end = ktime_get();$
+
+WARNING: please, no spaces at the start of a line
+#41: FILE: ex_mempool.c:41:
++        p_end = ktime_get();$
+
+ERROR: code indent should use tabs where possible
+#43: FILE: ex_mempool.c:43:
++        if (pool_item) {$
+
+WARNING: please, no spaces at the start of a line
+#43: FILE: ex_mempool.c:43:
++        if (pool_item) {$
+
+WARNING: suspect code indent for conditional statements (8, 12)
+#43: FILE: ex_mempool.c:43:
++        if (pool_item) {
++            p_time_ms = ktime_ms_delta(p_end, p_start);
+
+ERROR: code indent should use tabs where possible
+#44: FILE: ex_mempool.c:44:
++            p_time_ms = ktime_ms_delta(p_end, p_start);$
+
+WARNING: please, no spaces at the start of a line
+#44: FILE: ex_mempool.c:44:
++            p_time_ms = ktime_ms_delta(p_end, p_start);$
+
+ERROR: code indent should use tabs where possible
+#45: FILE: ex_mempool.c:45:
++            pr_info("mempool: SUCCESS\n");$
+
+WARNING: please, no spaces at the start of a line
+#45: FILE: ex_mempool.c:45:
++            pr_info("mempool: SUCCESS\n");$
+
+ERROR: code indent should use tabs where possible
+#46: FILE: ex_mempool.c:46:
++            pr_info("mempool: %lu byte, %lld ms, type: physical (mempool)\n",$
+
+WARNING: please, no spaces at the start of a line
+#46: FILE: ex_mempool.c:46:
++            pr_info("mempool: %lu byte, %lld ms, type: physical (mempool)\n",$
+
+ERROR: code indent should use tabs where possible
+#47: FILE: ex_mempool.c:47:
++                    p_test, p_time_ms);$
+
+WARNING: please, no spaces at the start of a line
+#47: FILE: ex_mempool.c:47:
++                    p_test, p_time_ms);$
+
+ERROR: code indent should use tabs where possible
+#49: FILE: ex_mempool.c:49:
++            mempool_free(pool_item, pool_ptr);$
+
+WARNING: please, no spaces at the start of a line
+#49: FILE: ex_mempool.c:49:
++            mempool_free(pool_item, pool_ptr);$
+
+ERROR: code indent should use tabs where possible
+#50: FILE: ex_mempool.c:50:
++            p_best = p_test;$
+
+WARNING: please, no spaces at the start of a line
+#50: FILE: ex_mempool.c:50:
++            p_best = p_test;$
+
+ERROR: code indent should use tabs where possible
+#51: FILE: ex_mempool.c:51:
++            p_low = p_test + 1;$
+
+WARNING: please, no spaces at the start of a line
+#51: FILE: ex_mempool.c:51:
++            p_low = p_test + 1;$
+
+ERROR: code indent should use tabs where possible
+#52: FILE: ex_mempool.c:52:
++        } else {$
+
+WARNING: please, no spaces at the start of a line
+#52: FILE: ex_mempool.c:52:
++        } else {$
+
+WARNING: suspect code indent for conditional statements (8, 12)
+#52: FILE: ex_mempool.c:52:
++        } else {
++            pr_info("mempool: FAIL, err_msg = alloc from pool failed\n");
+
+ERROR: code indent should use tabs where possible
+#53: FILE: ex_mempool.c:53:
++            pr_info("mempool: FAIL, err_msg = alloc from pool failed\n");$
+
+WARNING: please, no spaces at the start of a line
+#53: FILE: ex_mempool.c:53:
++            pr_info("mempool: FAIL, err_msg = alloc from pool failed\n");$
+
+ERROR: code indent should use tabs where possible
+#54: FILE: ex_mempool.c:54:
++            p_high = p_test - 1;$
+
+WARNING: please, no spaces at the start of a line
+#54: FILE: ex_mempool.c:54:
++            p_high = p_test - 1;$
+
+ERROR: code indent should use tabs where possible
+#55: FILE: ex_mempool.c:55:
++        }$
+
+WARNING: please, no spaces at the start of a line
+#55: FILE: ex_mempool.c:55:
++        }$
+
+ERROR: code indent should use tabs where possible
+#57: FILE: ex_mempool.c:57:
++        // Уничтожаем пул, освобождая все ресурсы$
+
+ERROR: code indent should use tabs where possible
+#58: FILE: ex_mempool.c:58:
++        mempool_destroy(pool_ptr);$
+
+WARNING: please, no spaces at the start of a line
+#58: FILE: ex_mempool.c:58:
++        mempool_destroy(pool_ptr);$
+
+WARNING: please, no spaces at the start of a line
+#59: FILE: ex_mempool.c:59:
++    }$
+
+WARNING: please, no spaces at the start of a line
+#61: FILE: ex_mempool.c:61:
++    if (p_best > 0)$
+
+ERROR: code indent should use tabs where possible
+#62: FILE: ex_mempool.c:62:
++        pr_info("mempool: maximum element size = %lu байт\n", p_best);$
+
+WARNING: please, no spaces at the start of a line
+#62: FILE: ex_mempool.c:62:
++        pr_info("mempool: maximum element size = %lu байт\n", p_best);$
+
+WARNING: please, no spaces at the start of a line
+#63: FILE: ex_mempool.c:63:
++    else$
+
+ERROR: code indent should use tabs where possible
+#64: FILE: ex_mempool.c:64:
++        pr_info("mempool: couldn't select any elements\n");$
+
+WARNING: please, no spaces at the start of a line
+#64: FILE: ex_mempool.c:64:
++        pr_info("mempool: couldn't select any elements\n");$
+
+WARNING: please, no spaces at the start of a line
+#66: FILE: ex_mempool.c:66:
++    return 0;$
+
+WARNING: please, no spaces at the start of a line
+#71: FILE: ex_mempool.c:71:
++    pr_info("mempool module unloaded\n");$
+
+ERROR: trailing whitespace
+#76: FILE: ex_mempool.c:76:
++    $
+
+WARNING: please, no spaces at the start of a line
+#76: FILE: ex_mempool.c:76:
++    $
+
+total: 36 errors, 49 warnings, 79 lines checked
+
+NOTE: For some of the reported defects, checkpatch may be able to
+      mechanically convert to the typical style using --fix or --fix-inplace.
+
+NOTE: Whitespace errors detected.
+      You may wish to use scripts/cleanpatch or scripts/cleanfile
+
+ex_mempool.c has style problems, please review.
+
+NOTE: If any of the errors are false positives, please report
+      them to the maintainer, see CHECKPATCH in MAINTAINERS.
+Checking ex_mempool.mod.c ...
+WARNING: Missing or malformed SPDX-License-Identifier tag in line 1
+#1: FILE: ex_mempool.mod.c:1:
++#include <linux/module.h>
+
+total: 0 errors, 1 warnings, 46 lines checked
+
+NOTE: For some of the reported defects, checkpatch may be able to
+      mechanically convert to the typical style using --fix or --fix-inplace.
+
+ex_mempool.mod.c has style problems, please review.
+
+NOTE: If any of the errors are false positives, please report
+      them to the maintainer, see CHECKPATCH in MAINTAINERS.
+Checking ex_vmalloc.c ...
+WARNING: Missing or malformed SPDX-License-Identifier tag in line 1
+#1: FILE: ex_vmalloc.c:1:
++#include <linux/module.h>
+
+WARNING: please, no spaces at the start of a line
+#8: FILE: ex_vmalloc.c:8:
++    unsigned long v_low = 1;$
+
+WARNING: please, no spaces at the start of a line
+#9: FILE: ex_vmalloc.c:9:
++    unsigned long v_high = 256*1025*1024UL;$
+
+WARNING: please, no spaces at the start of a line
+#10: FILE: ex_vmalloc.c:10:
++    unsigned long v_test;$
+
+WARNING: please, no spaces at the start of a line
+#11: FILE: ex_vmalloc.c:11:
++    unsigned long v_max = 0;$
+
+WARNING: please, no spaces at the start of a line
+#13: FILE: ex_vmalloc.c:13:
++    void *v_buf;$
+
+WARNING: please, no spaces at the start of a line
+#14: FILE: ex_vmalloc.c:14:
++    ktime_t v_start, v_end;$
+
+WARNING: please, no spaces at the start of a line
+#15: FILE: ex_vmalloc.c:15:
++    s64 v_time_ms;$
+
+WARNING: please, no spaces at the start of a line
+#17: FILE: ex_vmalloc.c:17:
++    pr_info("vmalloc: starting the search for the maximum selection size");$
+
+WARNING: please, no spaces at the start of a line
+#18: FILE: ex_vmalloc.c:18:
++    while((v_buf = vmalloc(v_high))!=NULL){$
+
+ERROR: spaces required around that '!=' (ctx:VxV)
+#18: FILE: ex_vmalloc.c:18:
++    while((v_buf = vmalloc(v_high))!=NULL){
+                                    ^
+
+ERROR: space required before the open brace '{'
+#18: FILE: ex_vmalloc.c:18:
++    while((v_buf = vmalloc(v_high))!=NULL){
+
+ERROR: space required before the open parenthesis '('
+#18: FILE: ex_vmalloc.c:18:
++    while((v_buf = vmalloc(v_high))!=NULL){
+
+ERROR: code indent should use tabs where possible
+#19: FILE: ex_vmalloc.c:19:
++        vfree(v_buf);$
+
+WARNING: please, no spaces at the start of a line
+#19: FILE: ex_vmalloc.c:19:
++        vfree(v_buf);$
+
+ERROR: code indent should use tabs where possible
+#20: FILE: ex_vmalloc.c:20:
++        v_high *= 2;$
+
+WARNING: please, no spaces at the start of a line
+#20: FILE: ex_vmalloc.c:20:
++        v_high *= 2;$
+
+ERROR: code indent should use tabs where possible
+#21: FILE: ex_vmalloc.c:21:
++        if(v_high>1024*1024*1024UL)$
+
+WARNING: please, no spaces at the start of a line
+#21: FILE: ex_vmalloc.c:21:
++        if(v_high>1024*1024*1024UL)$
+
+WARNING: suspect code indent for conditional statements (8, 12)
+#21: FILE: ex_vmalloc.c:21:
++        if(v_high>1024*1024*1024UL)
++            break;
+
+ERROR: spaces required around that '>' (ctx:VxV)
+#21: FILE: ex_vmalloc.c:21:
++        if(v_high>1024*1024*1024UL)
+                  ^
+
+ERROR: space required before the open parenthesis '('
+#21: FILE: ex_vmalloc.c:21:
++        if(v_high>1024*1024*1024UL)
+
+ERROR: code indent should use tabs where possible
+#22: FILE: ex_vmalloc.c:22:
++            break;$
+
+WARNING: please, no spaces at the start of a line
+#22: FILE: ex_vmalloc.c:22:
++            break;$
+
+WARNING: please, no spaces at the start of a line
+#23: FILE: ex_vmalloc.c:23:
++    }$
+
+WARNING: please, no spaces at the start of a line
+#24: FILE: ex_vmalloc.c:24:
++    while(v_low <= v_high) {$
+
+ERROR: space required before the open parenthesis '('
+#24: FILE: ex_vmalloc.c:24:
++    while(v_low <= v_high) {
+
+ERROR: code indent should use tabs where possible
+#25: FILE: ex_vmalloc.c:25:
++        v_test = v_low + (v_high - v_low)/2;$
+
+WARNING: please, no spaces at the start of a line
+#25: FILE: ex_vmalloc.c:25:
++        v_test = v_low + (v_high - v_low)/2;$
+
+ERROR: code indent should use tabs where possible
+#26: FILE: ex_vmalloc.c:26:
++        if(v_test<1) v_test = 1;$
+
+WARNING: please, no spaces at the start of a line
+#26: FILE: ex_vmalloc.c:26:
++        if(v_test<1) v_test = 1;$
+
+ERROR: spaces required around that '<' (ctx:VxV)
+#26: FILE: ex_vmalloc.c:26:
++        if(v_test<1) v_test = 1;
+                  ^
+
+ERROR: space required before the open parenthesis '('
+#26: FILE: ex_vmalloc.c:26:
++        if(v_test<1) v_test = 1;
+
+ERROR: trailing statements should be on next line
+#26: FILE: ex_vmalloc.c:26:
++        if(v_test<1) v_test = 1;
+
+ERROR: code indent should use tabs where possible
+#28: FILE: ex_vmalloc.c:28:
++        pr_info("vmalloc: %lu byte\n", v_test);$
+
+WARNING: please, no spaces at the start of a line
+#28: FILE: ex_vmalloc.c:28:
++        pr_info("vmalloc: %lu byte\n", v_test);$
+
+ERROR: code indent should use tabs where possible
+#30: FILE: ex_vmalloc.c:30:
++        v_start = ktime_get();$
+
+WARNING: please, no spaces at the start of a line
+#30: FILE: ex_vmalloc.c:30:
++        v_start = ktime_get();$
+
+ERROR: code indent should use tabs where possible
+#31: FILE: ex_vmalloc.c:31:
++        v_buf = vmalloc(v_test);$
+
+WARNING: please, no spaces at the start of a line
+#31: FILE: ex_vmalloc.c:31:
++        v_buf = vmalloc(v_test);$
+
+ERROR: code indent should use tabs where possible
+#32: FILE: ex_vmalloc.c:32:
++        v_end = ktime_get();$
+
+WARNING: please, no spaces at the start of a line
+#32: FILE: ex_vmalloc.c:32:
++        v_end = ktime_get();$
+
+ERROR: code indent should use tabs where possible
+#34: FILE: ex_vmalloc.c:34:
++        if (v_buf) {$
+
+WARNING: please, no spaces at the start of a line
+#34: FILE: ex_vmalloc.c:34:
++        if (v_buf) {$
+
+WARNING: suspect code indent for conditional statements (8, 12)
+#34: FILE: ex_vmalloc.c:34:
++        if (v_buf) {
++            v_time_ms = ktime_ms_delta(v_end, v_start);
+
+ERROR: code indent should use tabs where possible
+#35: FILE: ex_vmalloc.c:35:
++            v_time_ms = ktime_ms_delta(v_end, v_start);$
+
+WARNING: please, no spaces at the start of a line
+#35: FILE: ex_vmalloc.c:35:
++            v_time_ms = ktime_ms_delta(v_end, v_start);$
+
+ERROR: code indent should use tabs where possible
+#36: FILE: ex_vmalloc.c:36:
++            pr_info("vmalloc: SUCCESS\n");$
+
+WARNING: please, no spaces at the start of a line
+#36: FILE: ex_vmalloc.c:36:
++            pr_info("vmalloc: SUCCESS\n");$
+
+ERROR: code indent should use tabs where possible
+#37: FILE: ex_vmalloc.c:37:
++            pr_info("vmalloc: %lu byte, %lld ms, type: virtual\n",$
+
+WARNING: please, no spaces at the start of a line
+#37: FILE: ex_vmalloc.c:37:
++            pr_info("vmalloc: %lu byte, %lld ms, type: virtual\n",$
+
+ERROR: code indent should use tabs where possible
+#38: FILE: ex_vmalloc.c:38:
++                    v_test, v_time_ms);$
+
+WARNING: please, no spaces at the start of a line
+#38: FILE: ex_vmalloc.c:38:
++                    v_test, v_time_ms);$
+
+ERROR: code indent should use tabs where possible
+#39: FILE: ex_vmalloc.c:39:
++            vfree(v_buf);$
+
+WARNING: please, no spaces at the start of a line
+#39: FILE: ex_vmalloc.c:39:
++            vfree(v_buf);$
+
+ERROR: code indent should use tabs where possible
+#40: FILE: ex_vmalloc.c:40:
++            v_max = v_test;$
+
+WARNING: please, no spaces at the start of a line
+#40: FILE: ex_vmalloc.c:40:
++            v_max = v_test;$
+
+ERROR: code indent should use tabs where possible
+#41: FILE: ex_vmalloc.c:41:
++            v_low = v_test + 1;$
+
+WARNING: please, no spaces at the start of a line
+#41: FILE: ex_vmalloc.c:41:
++            v_low = v_test + 1;$
+
+ERROR: code indent should use tabs where possible
+#42: FILE: ex_vmalloc.c:42:
++        } else {$
+
+WARNING: please, no spaces at the start of a line
+#42: FILE: ex_vmalloc.c:42:
++        } else {$
+
+WARNING: suspect code indent for conditional statements (8, 12)
+#42: FILE: ex_vmalloc.c:42:
++        } else {
++            pr_info("vmalloc: FAIL, err_msg = allocation failed\n");
+
+ERROR: code indent should use tabs where possible
+#43: FILE: ex_vmalloc.c:43:
++            pr_info("vmalloc: FAIL, err_msg = allocation failed\n");$
+
+WARNING: please, no spaces at the start of a line
+#43: FILE: ex_vmalloc.c:43:
++            pr_info("vmalloc: FAIL, err_msg = allocation failed\n");$
+
+ERROR: code indent should use tabs where possible
+#44: FILE: ex_vmalloc.c:44:
++            v_high = v_test - 1;$
+
+WARNING: please, no spaces at the start of a line
+#44: FILE: ex_vmalloc.c:44:
++            v_high = v_test - 1;$
+
+ERROR: code indent should use tabs where possible
+#45: FILE: ex_vmalloc.c:45:
++        }$
+
+WARNING: please, no spaces at the start of a line
+#45: FILE: ex_vmalloc.c:45:
++        }$
+
+WARNING: please, no spaces at the start of a line
+#46: FILE: ex_vmalloc.c:46:
++    }$
+
+WARNING: please, no spaces at the start of a line
+#48: FILE: ex_vmalloc.c:48:
++    if (v_max > 0)$
+
+ERROR: code indent should use tabs where possible
+#49: FILE: ex_vmalloc.c:49:
++        pr_info("vmalloc: maximum allocated size = %lu bytes\n", v_max);$
+
+WARNING: please, no spaces at the start of a line
+#49: FILE: ex_vmalloc.c:49:
++        pr_info("vmalloc: maximum allocated size = %lu bytes\n", v_max);$
+
+WARNING: please, no spaces at the start of a line
+#50: FILE: ex_vmalloc.c:50:
++    else$
+
+ERROR: code indent should use tabs where possible
+#51: FILE: ex_vmalloc.c:51:
++        pr_info("vmalloc: couldn't allocate memory\n");$
+
+WARNING: please, no spaces at the start of a line
+#51: FILE: ex_vmalloc.c:51:
++        pr_info("vmalloc: couldn't allocate memory\n");$
+
+WARNING: please, no spaces at the start of a line
+#53: FILE: ex_vmalloc.c:53:
++    return 0;$
+
+WARNING: please, no spaces at the start of a line
+#58: FILE: ex_vmalloc.c:58:
++    pr_info("vmalloc module unloaded\n");$
+
+total: 33 errors, 44 warnings, 67 lines checked
+
+NOTE: For some of the reported defects, checkpatch may be able to
+      mechanically convert to the typical style using --fix or --fix-inplace.
+
+NOTE: Whitespace errors detected.
+      You may wish to use scripts/cleanpatch or scripts/cleanfile
+
+ex_vmalloc.c has style problems, please review.
+
+NOTE: If any of the errors are false positives, please report
+      them to the maintainer, see CHECKPATCH in MAINTAINERS.
+Checking ex_vmalloc.mod.c ...
+WARNING: Missing or malformed SPDX-License-Identifier tag in line 1
+#1: FILE: ex_vmalloc.mod.c:1:
++#include <linux/module.h>
+
+total: 0 errors, 1 warnings, 42 lines checked
+
+NOTE: For some of the reported defects, checkpatch may be able to
+      mechanically convert to the typical style using --fix or --fix-inplace.
+
+ex_vmalloc.mod.c has style problems, please review.
+
+NOTE: If any of the errors are false positives, please report
+      them to the maintainer, see CHECKPATCH in MAINTAINERS.
